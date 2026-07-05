@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import Switch from '@mui/material/Switch';
+import type { SwitchProps } from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 export interface ToggleSwitchProps {
   label?: string;
   defaultChecked?: boolean;
+  color?: SwitchProps['color'];
   onChange?: (checked: boolean) => void;
 }
 
 export default function ToggleSwitch({
-  label = 'Toggle',
+  label = 'Activar',
   defaultChecked = false,
+  color = 'primary',
   onChange,
 }: ToggleSwitchProps) {
   const [checked, setChecked] = useState(defaultChecked);
@@ -28,7 +31,7 @@ export default function ToggleSwitch({
           checked={checked}
           onChange={handleChange}
           data-testid="toggle-switch"
-          color="primary"
+          color={color}
         />
       }
       label={label}
