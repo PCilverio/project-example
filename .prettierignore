@@ -3,3 +3,4 @@ dist/
 .astro/
 .storybook/
 coverage/
+storybook-static/

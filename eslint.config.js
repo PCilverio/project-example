@@ -8,16 +8,17 @@ import globals from 'globals';
 export default [
   {
     ignores: [
-      'node_modules/',
-      'dist/',
-      '.astro/',
-      '.storybook/',
-      'coverage/',
+      'node_modules/**',
+      'dist/**',
+      '.astro/**',
+      '.storybook/**',
+      'coverage/**',
+      'storybook-static/**',
+      'src/stories/**',
       '*.config.js',
       '*.config.cjs',
       '*.config.ts',
       '*.setup.ts',
-      'src/stories/**/*',
     ],
   },
   {
