@@ -1,0 +1,36 @@
+name: CI Testing Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar formato con Prettier
+        run: npm run format:check
+
+      - name: Ejecutar linter con ESLint
+        run: npm run lint
+
+      - name: Ejecutar pruebas de Vitest
+        run: npx vitest run
+
+      - name: Compilar proyecto Astro
+        run: npm run build
